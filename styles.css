@@ -1,0 +1,143 @@
+body {
+  background-color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 2;
+  margin: 0;
+}
+
+article {
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 700px;
+}
+
+figure {
+  margin: 0;
+  margin-bottom: 2em;
+}
+
+img {
+  max-width: 100%;
+}
+
+img.icon {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  max-width: 30px;
+  height: auto;
+}
+
+article > img {
+  margin-bottom: 2em;
+}
+
+h1 {
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+ol, ul {
+  margin-top: 0;
+}
+p + ol, p + ul {
+  margin-top: -1em;
+}
+
+cite[data-reference] {
+  border-bottom: 1px dotted #333333;
+  cursor: pointer;
+  font-size: 0.75em;
+  font-style: normal;
+  position: relative;
+  bottom: 0.5em;
+}
+
+cite[data-reference]::before { content: '('; color: #333333; }
+cite[data-reference]::after  { content: ')'; color: #333333; }
+
+cite[data-reference] .in-text-reference {
+  background-color: #ffffff;
+  border: 1px solid;
+  display: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  padding: 0.75em 1.5em;
+  position: absolute;
+  top: 0; left: 0;
+  width: 300px;
+  z-index: 100;
+}
+
+cite[data-reference]:hover .in-text-reference  {
+  display: block;
+}
+
+cite[data-reference] .in-text-reference a:hover {
+  opacity: 0.75;
+}
+
+
+blockquote {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-bottom: 2em;
+  padding: 1.5em 0;
+}
+
+blockquote .quote {
+  margin-bottom: 0;
+  position: relative;
+}
+
+blockquote .quote::before,
+blockquote .quote::after {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 0.5;
+  position: absolute;
+}
+
+blockquote .quote::before { content: '“'; top:    -0.00em; left:  -0.75em; }
+blockquote .quote::after  { content: '”'; bottom: -0.50em; right: -0.50em; }
+
+blockquote ol {
+  list-style-type: upper-alpha;
+}
+
+@media (min-width: 600px) {
+  blockquote {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+#References ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#References li {
+  margin-bottom: 2em;
+  padding-left: 3em;
+  text-indent: -3em;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  height: 1px;
+  width: 1px;
+}
