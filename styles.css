@@ -1,9 +1,24 @@
+:root {
+  --accent-color: #3f51b5;
+  --hover-color:  #000000;
+}
+
 body {
   background-color: #ffffff;
+  color: #000000;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 12pt;
   line-height: 2;
   margin: 0;
+}
+
+a {
+  color: var(--accent-color);
+  transition: 0.2s;
+}
+
+a:hover {
+  color: var(--hover-color);
 }
 
 article {
@@ -22,7 +37,7 @@ img {
 }
 
 img.icon {
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 50%;
   margin-right: 0.5em;
   max-width: 30px;
@@ -79,11 +94,6 @@ cite[data-reference]:hover .in-text-reference  {
   display: block;
 }
 
-cite[data-reference] .in-text-reference a:hover {
-  opacity: 0.75;
-}
-
-
 blockquote {
   border-top: 1px solid;
   border-bottom: 1px solid;
@@ -129,6 +139,11 @@ blockquote ol {
   text-indent: -3em;
 }
 
+.byline {
+  display: flex;
+  margin-bottom: 1.5em;
+}
+
 .sr-only {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -140,4 +155,184 @@ blockquote ol {
   white-space: nowrap;
   height: 1px;
   width: 1px;
+}
+
+
+
+button#screenreader-mode {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  padding: 1em 2em;
+  transition: 0.3s;
+  min-width: 200px;
+}
+
+button#screenreader-mode:hover {
+  background-color: var(--hover-color);
+}
+
+button#reset-mode {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  transition: 0.3s;
+  width: 75px;
+  height: 75px;
+}
+
+button#reset-mode:hover {
+  background-color: var(--hover-color);
+}
+
+
+
+
+
+.simulated {
+  padding: 1em;
+}
+
+.simulated article * {
+  border:       none !important;
+  font-size:    1rem !important;
+  font-style: normal !important;
+  font-weight:   300 !important;
+  padding-left:    0 !important;
+  padding-right:   0 !important;
+  text-indent:     0 !important;
+  margin-left:     0 !important;
+  margin-right:    0 !important;
+}
+
+.simulated article > * {
+  margin-top:      0 !important;
+  margin-bottom: 1em !important;
+}
+
+.simulated a::before,
+.simulated blockquote::before,
+.simulated blockquote::after,
+.simulated h1::before,
+.simulated h2::before,
+.simulated h3::before,
+.simulated h4::before,
+.simulated h5::before,
+.simulated h6::before,
+.simulated img::before,
+.simulated [data-label]::before {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-right: 0.25em;
+}
+
+.simulated a::before             { content: 'Link, ';              }
+.simulated blockquote::before    { content: 'Block quote, ';       }
+.simulated blockquote::after     { content: 'Out of block quote.'; }
+.simulated h1::before            { content: 'Heading level 1, ';   }
+.simulated h2::before            { content: 'Heading level 2, ';   }
+.simulated h3::before            { content: 'Heading level 3, ';   }
+.simulated h4::before            { content: 'Heading level 4, ';   }
+.simulated h5::before            { content: 'Heading level 5, ';   }
+.simulated h6::before            { content: 'Heading level 6, ';   }
+.simulated img::before           { content: 'Image, ';             }
+.simulated img:not([alt])::after { content: attr(data-src);        }
+.simulated [data-label]::before  { content: attr(data-label) ', '; }
+
+.simulated a {
+  color: inherit;
+  display: block;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+.simulated blockquote {
+  padding: 0;
+}
+
+.simulated blockquote::before {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.simulated blockquote::after {
+  display: block;
+  margin-top: 1em;
+}
+
+.simulated figure {
+  margin-bottom: 1em;
+}
+
+.simulated img[alt]::before { /* Hide the broken image icon */
+  background: white;
+  margin-left: -1em;
+  padding-top: 0.5em;
+}
+
+.simulated img {
+  margin-bottom: 1em;
+}
+
+.simulated img[alt=""],
+.simulated blockquote .quote::before,
+.simulated blockquote .quote::after {
+  display: none;
+}
+
+.simulated ul,
+.simulated ol {
+  list-style-type: none;
+}
+
+.simulated li {
+  margin-bottom: 1em !important;
+}
+
+.simulated li:first-child {
+  margin-top: 1em;
+}
+
+.simulated cite[data-reference] {
+  cursor: initial;
+  position: initial;
+}
+
+.simulated cite[data-reference]:hover .in-text-reference {
+  display: none;
+}
+
+.simulated .byline,
+.simulated .byline > * {
+  display: block;
+}
+
+.simulated .byline > * {
+  margin-bottom: 1em;
+}
+
+/* Reverse screen reader visible and hidden content */
+
+.simulated [aria-hidden="true"] {
+  display: none !important;
+}
+
+.simulated .sr-only {
+  border: 0;
+  clip: initial;
+  clip-path: none;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  position: initial;
+  white-space: wrap;
+  height: auto;
+  width: auto;
 }
