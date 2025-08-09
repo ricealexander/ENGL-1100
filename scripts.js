@@ -33,7 +33,7 @@ for (let list of lists) {
 
   for (let index = 0; index < itemCount; index += 1) {
     const item = items[index]
-    item.dataset.label = `Item ${index} of ${itemCount - 1}`
+    item.dataset.label = `Item ${index + 1} of ${itemCount}`
   }
 }
 
